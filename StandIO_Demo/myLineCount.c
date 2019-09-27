@@ -18,7 +18,6 @@ int main(int argc,char **argv)
 
 	char cBuffer[1025];
 	int count = 0;
-	
 	char *strp= NULL;
 	
 	while(1)
@@ -42,6 +41,7 @@ int main(int argc,char **argv)
 				fclose(fp);
 				return -1;
 			}
+
 		}
 		if(feof(fp) == 1)
 		{
