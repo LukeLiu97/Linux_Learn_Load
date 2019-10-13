@@ -94,35 +94,26 @@ int serverTask(char **argv)
     {
         /* 接收数据 */
         memset(cBuff, 0, sizeof(cBuff));
-	memset(&sockAddr,0,sizeof(sockAddr));
+        memset(&sockAddr, 0, sizeof(sockAddr));
         recvSize = recvfrom(sockFD,
-			cBuff,
-			sizeof(cBuff) - 1,
-			0,
-			(struct sockaddr *)&sockAddr,
-			&addrLen);
+                            cBuff,
+                            sizeof(cBuff) - 1,
+                            0,
+                            (struct sockaddr *)&sockAddr,
+                            &addrLen);
         printf("cBuff len:%d\n", recvSize);
         printf("Data:%s\n", cBuff);
 
-/* 发送数据 */
-strcpy(cBuff, "hello");
-sendSize = sendto(sockFD,
-    	cBuff,
-    	strlen(cBuff),
-    	0,
-    	(struct sockaddr *)&sockAddr,
-    	sizeof(sockAddr));
-printf("cBuff len:%d\n", sendSize);
-printf("Data:%s\n", cBuff);
-
-
-
-
-
-
-
-
-
+        /* 发送数据 */
+        strcpy(cBuff, "hello");
+        sendSize = sendto(sockFD,
+                          cBuff,
+                          strlen(cBuff),
+                          0,
+                          (struct sockaddr *)&sockAddr,
+                          sizeof(sockAddr));
+        printf("cBuff len:%d\n", sendSize);
+        printf("Data:%s\n", cBuff);
     }
     close(sockFD);
 
@@ -165,30 +156,25 @@ int clientTask(char **argv)
     /* 发送数据 */
     strcpy(cBuff, "hello");
     sendSize = sendto(sockFD,
-		cBuff,
-		strlen(cBuff),
-		0,
-		(struct sockaddr *)&sockAddr,
-		sizeof(struct sockaddr_in));
+                      cBuff,
+                      strlen(cBuff),
+                      0,
+                      (struct sockaddr *)&sockAddr,
+                      sizeof(struct sockaddr_in));
     printf("cBuff len:%d\n", sendSize);
     printf("Data:%s\n", cBuff);
 
-/* 接收数据 */
-memset(cBuff, 0, sizeof(cBuff));
-memset(&sockAddr,0,sizeof(sockAddr));
-recvSize = recvfrom(sockFD,
-		cBuff,
-		sizeof(cBuff) - 1,
-		0,
-		(struct sockaddr *)&sockAddr,
-		&addrLen);
-printf("cBuff len:%d\n", recvSize);
-printf("Data:%s\n", cBuff);
-
-
-
-
-
+    /* 接收数据 */
+    memset(cBuff, 0, sizeof(cBuff));
+    memset(&sockAddr, 0, sizeof(sockAddr));
+    recvSize = recvfrom(sockFD,
+                        cBuff,
+                        sizeof(cBuff) - 1,
+                        0,
+                        (struct sockaddr *)&sockAddr,
+                        &addrLen);
+    printf("cBuff len:%d\n", recvSize);
+    printf("Data:%s\n", cBuff);
 
     close(sockFD);
 
