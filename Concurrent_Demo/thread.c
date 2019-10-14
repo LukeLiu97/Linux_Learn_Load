@@ -145,7 +145,6 @@ void *sockThreadFun(void *arg)
 				strlen(sendMsgBuff)+1,
 				0);
 		}
-
 	}
 	pthread_exit(NULL);
 }

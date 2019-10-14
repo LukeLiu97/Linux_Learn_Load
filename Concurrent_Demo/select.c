@@ -12,7 +12,7 @@
 #define QUEUE_LEN 5
 
 /* 默认IP&Port */
-char strIP[] = "192.168.0.81";
+char strIP[16] = "192.168.10.81";
 int port = 12345;
 
 int identifyARG(int argc,char **argv);
